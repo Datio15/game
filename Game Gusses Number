@@ -1,0 +1,83 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int score_point(int stample);
+int AI_RandomNumber();
+int get_Num();
+void check_key(int ply, int AI);
+
+int hp = 100;
+int stample = 0;
+
+void new_game();
+bool ask_player();
+
+int main() {
+    srand(time(0));
+
+    while (true) {
+        int key_num = AI_RandomNumber();
+        int player_num;
+
+        do {
+            player_num = get_Num();
+            check_key(player_num, key_num);
+            stample += 1;
+            hp = score_point(stample);
+
+            cout << "Máu của bạn: " << hp << endl;
+            cout << "Số lần đoán: " << stample << endl;
+        } while ((key_num != player_num) && (hp > 0));
+
+        if (hp == 0) {
+            cout << "You Lose" << endl;
+        } else {
+            cout << "You Win" << endl;
+        }
+
+        if (ask_player()) {
+            new_game();
+        } else {
+            break;
+        }
+    }
+
+    return 0;
+}
+
+int score_point(int stample) {
+    return 100 - stample * 10;
+}
+
+int AI_RandomNumber() {
+    return rand() % 100 + 1;
+}
+
+int get_Num() {
+    cout << "Enter your number (1...100): ";
+    int x;
+    cin >> x;
+    return x;
+}
+
+void check_key(int ply, int AI) {
+    if (ply > AI) {
+        cout << "Your Number Too Large" << endl;
+    } else if (ply < AI) {
+        cout << "Your Number Too Small" << endl;
+    } else {
+        cout << "Correct Number" << endl;
+    }
+}
+
+void new_game() {
+    hp = 100;
+    stample = 0;
+}
+
+bool ask_player() {
+    cout << "Do you want to play again? (1 for Yes, 0 for No): ";
+    bool ans;
+    cin >> ans;
+    return ans;
+}
