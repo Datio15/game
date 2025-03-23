@@ -1,0 +1,21 @@
+câu hỏi Pointer
+
+1. *p3 = B, p3 = 0x5678
+   *p3 = A, p3 = 0x1234
+   *p1 = B, p1 = 0x1234
+
+2. -lệnh gán giá trị cho i = 5: *p = 5
+
+3.  kiểu dữ liệu của biến c là Char nên khi  định nghĩa biến con trỏ p là địa chỉ cho kiểu dữ liệu double mà lại gán = địa chỉ của c là sai
+
+D câu hỏi trắc nghiệm 
+
+1.iii
+2.iii
+3.ii,iii
+4.ii,iii
+5.iv
+6.ii,iii,iv
+7.iii
+
+   
