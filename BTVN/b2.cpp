@@ -21,7 +21,7 @@ int main() {
                 }
             }
         }
-        cout << sum << endl;
+        cout << sum-arr[xp][yp] << endl;
     }
     return 0;
 }
